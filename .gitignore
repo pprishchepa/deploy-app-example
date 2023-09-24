@@ -1,0 +1,5 @@
+.idea
+.env
+docker-compose.yml
+.project_data
+build/myapp/myapp

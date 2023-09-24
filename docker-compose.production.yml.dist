@@ -1,0 +1,23 @@
+version: "3.3"
+
+services:
+  myapp:
+    build:
+      context: ./build/myapp
+    restart: always
+    ports:
+      - "8081:8081"
+    networks:
+      - ingress
+      - default
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.myapp-${PROJECT_NAME}.rule=Host(`myapp.foo.example`)
+      - traefik.http.routers.myapp-${PROJECT_NAME}.tls=true
+      - traefik.http.routers.myapp-${PROJECT_NAME}.tls.certresolver=letsencrypt
+      - traefik.http.routers.myapp-${PROJECT_NAME}.tls.domains[0].main=myapp.foo.example
+
+networks:
+  ingress:
+    external:
+      name: ingress

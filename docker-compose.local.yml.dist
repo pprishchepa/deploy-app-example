@@ -1,0 +1,9 @@
+version: "3.3"
+
+services:
+  myapp:
+    build:
+      context: ./build/myapp
+    restart: always
+    ports:
+      - "8081:8081"

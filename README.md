@@ -1,1 +1,1 @@
-# deploy-app-example
+# Example App for [Traefik-based Ingress](https://github.com/pprishchepa/deploy-ingress-example)
